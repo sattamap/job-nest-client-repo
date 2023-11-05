@@ -1,17 +1,26 @@
-import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { createContext, useState} from "react";
+import {  createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import app from "../firebase/firebase.config";
+
 
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
+
+
 const AuthProvider = ({children}) => {
 
+    
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    
    
-
-
+    
+    
     const createUser = (name, email, password, photoURL) => {
-       
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Add the user's first name and last name to their profile
@@ -27,11 +36,16 @@ const AuthProvider = ({children}) => {
           });
       };
 
-
-
+      
+  
 
     const authInfo = {
+        user,
+        setUser,
         createUser,
+        loading,
+        setLoading,
+       
     };
     return (
         <AuthContext.Provider value={authInfo}>
@@ -40,5 +54,7 @@ const AuthProvider = ({children}) => {
     );
 };
 
-export default AuthProvider;
 
+
+
+export default AuthProvider;

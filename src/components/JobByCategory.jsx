@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 
 const JobByCategory = () => {
@@ -54,7 +55,9 @@ const JobByCategory = () => {
               <p>Deadline: {formatDate(job.applicationDeadline)}</p>
               <p>Salary Range: {job.salaryRange}</p>
               <p>Applicants: {job.jobApplicantsNumber}</p>
-              <button>View Details</button>
+              <Link to={`/job/${job._id}`}>
+                <button className="btn">View Details</button>
+            </Link>
             </div>
           ))}
          </div>
@@ -72,7 +75,9 @@ const JobByCategory = () => {
               <p>Deadline: {formatDate(job.applicationDeadline)}</p>
               <p>Salary Range: {job.salaryRange}</p>
               <p>Applicants: {job.jobApplicantsNumber}</p>
-              <button>View Details</button>
+              <Link to={`/job/${job._id}`}>
+                <button className="btn">View Details</button>
+            </Link>
               </div>
             ))}
           </div>
@@ -90,7 +95,9 @@ const JobByCategory = () => {
               <p>Deadline: {formatDate(job.applicationDeadline)}</p>
               <p>Salary Range: {job.salaryRange}</p>
               <p>Applicants: {job.jobApplicantsNumber}</p>
-              <button>View Details</button>
+              <Link to={`/job/${job._id}`}>
+                <button className="btn">View Details</button>
+            </Link>
               </div>
             ))}
          </div>
@@ -108,7 +115,9 @@ const JobByCategory = () => {
               <p>Deadline: {formatDate(job.applicationDeadline)}</p>
               <p>Salary Range: {job.salaryRange}</p>
               <p>Applicants: {job.jobApplicantsNumber}</p>
-              <button>View Details</button>
+              <Link to={`/job/${job._id}`}>
+                <button className="btn">View Details</button>
+            </Link>
               </div>
             ))}
           </div>
@@ -126,7 +135,9 @@ const JobByCategory = () => {
               <p>Deadline: {formatDate(job.applicationDeadline)}</p>
               <p>Salary Range: {job.salaryRange}</p>
               <p>Applicants: {job.jobApplicantsNumber}</p>
-              <button>View Details</button>
+              <Link to={`/job/${job._id}`}>
+                <button className="btn">View Details</button>
+            </Link>
               </div>
             ))}
           </div>

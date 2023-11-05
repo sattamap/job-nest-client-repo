@@ -6,6 +6,7 @@ import Blogs from "../pages/Blogs/Blogs";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddJob from "../pages/AddJob/AddJob";
+import JobDetails from "../components/JobDetails";
 
 
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         {
             path: 'blogs', 
             element: <Blogs></Blogs>
+        },
+        {
+            path:"/job/:id",
+            element:<JobDetails></JobDetails>
         },
         {
             path: 'login', 

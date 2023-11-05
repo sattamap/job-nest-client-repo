@@ -1,15 +1,11 @@
-
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 
 
-
-
 const Register = () => {
-    const{createUser} = useContext(AuthContext)
-    console.log(createUser);
+    const {createUser, setUser} = useContext(AuthContext);
     const navigate = useNavigate();
     
     const handleRegister = (e) => {
@@ -35,7 +31,7 @@ const Register = () => {
           }
         createUser(name, email, password, photoURL)
           .then(() => {
-            // setUser(null);
+            setUser(null);
             Swal.fire({
                 title: 'Success!',
                 text: 'Data added successfully',

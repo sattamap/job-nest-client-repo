@@ -9,6 +9,7 @@ const Navbar = () => {
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
         <li> <Link to="/all">All Jobs</Link> </li>
+        <li> <Link to="/add">Add A Job</Link> </li>
          <li> <Link to="/blogs">Blogs</Link> </li>
          <li> <Link to="/login">Login</Link> </li>
          </>

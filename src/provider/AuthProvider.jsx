@@ -1,5 +1,5 @@
 import { createContext, useState} from "react";
-import {  createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import {  createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 
@@ -36,6 +36,12 @@ const AuthProvider = ({children}) => {
           });
       };
 
+
+      const signIn = (email,password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth,email,password);
+    }
+
       
   
 
@@ -43,6 +49,7 @@ const AuthProvider = ({children}) => {
         user,
         setUser,
         createUser,
+        signIn,
         loading,
         setLoading,
        

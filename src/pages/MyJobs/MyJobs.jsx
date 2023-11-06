@@ -41,6 +41,40 @@ const MyJobs = () => {
         return <div>Loading...</div>;
     }
 
+    const handleDelete = (_id) =>{
+         console.log('want to delete:',_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(` http://localhost:5000/jobs/${_id}`,{
+                    method: 'DELETE'
+                })
+        
+                    .then(res=>res.json())
+                    .then(data=>{
+                        console.log(data);
+                        if (data.deletedCount === 1) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                              )
+                            const remaining = myJobs.filter(myJob => myJob._id !== _id);
+                            setMyJobs(remaining);
+                        }
+                    })
+           
+            }
+          })
+     
+        }
         const calculateTimeElapsed = (postingDate) => {
             return formatDistanceToNow(new Date(postingDate), { addSuffix: true });
           };
@@ -88,7 +122,7 @@ const MyJobs = () => {
                 <th>
                  
                     <button className="btn btn-ghost btn-xs">Update</button>
-                    <button  className="btn btn-ghost btn-xs">Delete</button>
+                    <button onClick={() => handleDelete(job._id)} className="btn btn-ghost btn-xs">Delete</button>
                   
                 </th>
               </tr>

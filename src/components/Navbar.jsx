@@ -20,6 +20,7 @@ const Navbar = () => {
         <li> <Link to="/all">All Jobs</Link> </li>
         <li> <Link to="/add">Add A Job</Link> </li>
         <li> <Link to="/myJobs">My Jobs</Link> </li>
+        <li> <Link to="/appliedJobs">Applied Jobs</Link> </li>
          <li> <Link to="/blogs">Blogs</Link> </li>
          { user?.email ?  <>
             <li><button onClick={handleLogOut}>Log out</button></li>

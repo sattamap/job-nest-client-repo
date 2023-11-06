@@ -131,12 +131,19 @@ if (!jobDetails) {
       return;
     }
 
-    // Submit the application data
     const applicationData = {
       name,
       email,
       resumeLink,
       jobId: jobDetails._id,
+      jobBannerURL: jobDetails.jobBannerURL,
+      jobTitle: jobDetails.jobTitle,
+      jobCategory: jobDetails.jobCategory,
+      salaryRange: jobDetails.salaryRange,
+      jobPostingDate: jobDetails.jobPostingDate,
+      applicationDeadline: jobDetails.applicationDeadline,
+      jobApplicantsNumber: jobDetails.jobApplicantsNumber,
+
     };
 
     fetch("http://localhost:5000/appliedJobs", {

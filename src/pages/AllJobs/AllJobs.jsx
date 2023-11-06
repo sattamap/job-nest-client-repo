@@ -1,9 +1,11 @@
+import JobsCard from "../../components/JobsCard";
+
 
 
 const AllJobs = () => {
     return (
         <div>
-            <h2>All jobs</h2>
+            <JobsCard></JobsCard>
         </div>
     );
 };

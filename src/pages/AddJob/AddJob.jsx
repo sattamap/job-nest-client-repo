@@ -1,10 +1,13 @@
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const AddJob = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user);
     const [jobPostingDate, setJobPostingDate] = useState(null);
     const [applicationDeadline, setApplicationDeadline] = useState(null);
 
@@ -18,14 +21,27 @@ const AddJob = () => {
         const jobCategory = form.jobCategory.value;
         const salaryRange = form.salaryRange.value;
         const jobDescription = form.jobDescription.value;
-        // const jobPostingDate = form.jobPostingDate.value;
-        // const applicationDeadline = form.applicationDeadline.value;
         const jobApplicantsNumber = form.jobApplicantsNumber.value;
-    
-        const newJob = { jobBannerURL, jobTitle, loggedInUserName, jobCategory, salaryRange, jobDescription,jobPostingDate,applicationDeadline,jobApplicantsNumber};
-    
+      
+        // Get the user's email from the AuthContext
+        const userEmail = user ? user.email : null;
+      
+        const newJob = {
+          jobBannerURL,
+          jobTitle,
+          loggedInUserName,
+          jobCategory,
+          salaryRange,
+          jobDescription,
+          jobPostingDate,
+          applicationDeadline,
+          jobApplicantsNumber,
+          userEmail, // Add the user's email to the new job data
+        };
+      
         console.log(newJob);
-        fetch(" http://localhost:5000/jobs", {
+        // Send the new job data to the server for storage
+        fetch("http://localhost:5000/jobs", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -46,7 +62,7 @@ const AddJob = () => {
             }
           });
       };
-    
+      
     
       return (
         
@@ -159,7 +175,7 @@ const AddJob = () => {
         <span className="label-text">Job Applicants Number</span>
       </label>
       <input
-        type="number"
+        type="text"
         name="jobApplicantsNumber"
         placeholder="Job Applicants Number"
         className="input input-bordered"

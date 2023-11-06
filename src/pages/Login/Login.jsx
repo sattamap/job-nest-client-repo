@@ -9,6 +9,7 @@ const Login = () => {
     const {signIn, googleSignIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    
 
 
     const handleLogin = (e) => {
@@ -54,7 +55,7 @@ const handleGoogleSignIn = () =>{
             icon: 'success',
             confirmButtonText: 'ok'
           });
-        navigate( '/' )
+          navigate(location?.state ? location.state : '/');
     })
     .catch(error=>{
         console.log(error.message);

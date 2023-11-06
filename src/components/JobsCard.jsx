@@ -4,7 +4,7 @@ import { formatDistanceToNow } from "date-fns";
 
 const JobsCard = () => {
   const [jobs, setJobs] = useState([]);
-  
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/jobs")
@@ -21,15 +21,24 @@ const JobsCard = () => {
     return formattedDate;
   };
 
-
+  // Filter jobs based on search term
+  const filteredJobs = jobs.filter((job) =>
+    job.jobTitle.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="max-w-[1300px] mx-auto mt-5">
       <div className="overflow-x-auto">
-      
-        <div className=" bg-slate-900 p-6 rounded-lg">
+        {/* Search input */}
+        <div className="flex justify-between bg-slate-900 p-6 rounded-lg">
         <h3 className="text-2xl font-bold text-orange-600">Our Available Jobs</h3>
-      
+          <input
+            type="text"
+            placeholder="Search by Job Title"
+            className="input w-1/3"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
         <table className="table">
           {/* head */}
@@ -42,7 +51,7 @@ const JobsCard = () => {
               <th>Applicants</th>
             </tr>
           </thead>
-          {jobs.map((job) => (
+          {filteredJobs.map((job) => (
             <tbody key={job._id}>
               <tr>
                 <td>

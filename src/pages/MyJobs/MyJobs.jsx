@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import { formatDistanceToNow } from "date-fns";
+import { Link } from "react-router-dom";
 
 
 const MyJobs = () => {
@@ -120,8 +121,8 @@ const MyJobs = () => {
                 <td>{formatDate(job.applicationDeadline)}</td>
                 <td>{job.jobApplicantsNumber}</td>
                 <th>
-                 
-                    <button className="btn btn-ghost btn-xs">Update</button>
+                
+                    <Link to={`/update/${job._id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
                     <button onClick={() => handleDelete(job._id)} className="btn btn-ghost btn-xs">Delete</button>
                   
                 </th>

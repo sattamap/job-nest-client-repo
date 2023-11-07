@@ -101,41 +101,35 @@ const Navbar = () => {
 
 
         <div className="navbar-end">
-
-
-
-          {user ? (
-            // If the user is logged in, show their profile picture, first name, and a logout button
-            <div className="nav-item flex">
-              {user.photoURL ? (
-                <img
-                  src={user.photoURL}
-                  alt={`${user.displayName}'s Profile`}
-                  className="btn btn-ghost btn-circle avatar"
-                />
-              ) : ""}
-              <span className="nav-link mx-2">
-                Welcome, {user.displayName?.split(" ")[0]}!
-              </span>
-              <button className="btn btn-secondary mx-2" onClick={handleLogOut}>
-                Logout
-              </button>
-            </div>
-          ) : (
-            // If the user is not logged in, show the login button
-
-
-            <div className="nav-item ">
-
-              <Link to="/login" className="btn btn-accent">
-                Login
-              </Link>
-
-            </div>
-
-          )}
-
+  {user ? (
+    // If the user is logged in, show their profile picture, and a logout button
+    <div className="nav-item flex items-center">
+      {user.photoURL ? (
+        <div className="relative group">
+          <img
+            src={user.photoURL}
+            alt={`${user.displayName}'s Profile`}
+            className="btn btn-ghost btn-circle avatar"
+          />
+          <span className="opacity-0 group-hover:opacity-100 absolute bg-gray-800 text-white text-sm px-2 py-1 rounded -left-20 transform -translate-x-1/2 transition duration-300">
+            Welcome, {user.displayName?.split(" ")[0]}!
+          </span>
         </div>
+      ) : ''}
+      <button className="btn btn-secondary mx-2" onClick={handleLogOut}>
+        Logout
+      </button>
+    </div>
+  ) : (
+    // If the user is not logged in, show the login button
+    <div className="nav-item">
+      <Link to="/login" className="btn btn-accent">
+        Login
+      </Link>
+    </div>
+  )}
+</div>
+
       </div>
 
     </div>

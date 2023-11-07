@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
           <div className="flex">
             <img src={logo} alt="" className="w-10" />
-            <h1 className="text-2xl font-extrabold">Tech<span className=" text-emerald-600">JobNest</span></h1>
+            <h1 className="text-2xl font-extrabold">Job<span className=" text-emerald-600">Nest</span></h1>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

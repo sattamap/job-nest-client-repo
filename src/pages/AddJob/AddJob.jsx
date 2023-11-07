@@ -175,7 +175,7 @@ const AddJob = () => {
         <span className="label-text">Job Applicants Number</span>
       </label>
       <input
-        type="text"
+        type="number"
         name="jobApplicantsNumber"
         placeholder="Job Applicants Number"
         className="input input-bordered"

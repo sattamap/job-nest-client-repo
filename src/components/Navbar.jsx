@@ -116,7 +116,7 @@ const Navbar = () => {
           </span>
         </div>
       ) : ''}
-      <button className="btn btn-secondary mx-2" onClick={handleLogOut}>
+      <button className="btn btn-error mx-2" onClick={handleLogOut}>
         Logout
       </button>
     </div>

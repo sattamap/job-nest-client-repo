@@ -57,7 +57,7 @@ const Update = () => {
                 icon: "success",
                 confirmButtonText: "ok",
               });
-              form.reset();
+            
             }
           });
       };
@@ -66,7 +66,7 @@ const Update = () => {
       return (
         
           <div>
-            <h2 className="text-xl text-center">Add Product</h2>
+            <h2 className="text-xl text-center">Update Jobs</h2>
             <form
               onSubmit={handleUpdate}
               className="card-body md:w-3/4 lg:w-1/2 mx-auto"
@@ -157,12 +157,11 @@ const Update = () => {
     <span className="label-text">Job Posting Date</span>
   </label>
   <DatePicker
-    selected={jobPostingDate}
-    onChange={date => setJobPostingDate(date)}
-    className="input input-bordered"
-    defaultValue={loadedData?.jobPostingDate}
-    required
-  />
+  selected={jobPostingDate || (loadedData?.jobPostingDate && new Date(loadedData.jobPostingDate))}
+  onChange={(date) => setJobPostingDate(date)}
+  className="input input-bordered"
+  required
+/>
 </div>
 
 <div className="form-control">
@@ -170,12 +169,11 @@ const Update = () => {
             <span className="label-text">Application Deadline</span>
           </label>
           <DatePicker
-            selected={applicationDeadline}
-            onChange={(date) => setApplicationDeadline(date)}
-            className="input input-bordered"
-            defaultValue={loadedData?.applicationDeadline}
-            required
-          />
+  selected={applicationDeadline || (loadedData?.applicationDeadline && new Date(loadedData.applicationDeadline))}
+  onChange={(date) => setApplicationDeadline(date)}
+  className="input input-bordered"
+  required
+/>
         </div>
               <div className="form-control">
       <label className="label">

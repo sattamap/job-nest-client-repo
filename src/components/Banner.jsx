@@ -21,7 +21,9 @@ const Banner = () => {
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000"><h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-red-600">Find Your Dream Job</h1></div>
 <div className="flex flex-col justify-center items-center mt-10">
-                        <div>
+                        <div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
                             <input
                                 className=" border-white p-3 rounded-l w-36 md:w-60 lg:w-80"
                                 type="text"

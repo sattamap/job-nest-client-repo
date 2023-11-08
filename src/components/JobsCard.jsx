@@ -7,7 +7,7 @@ const JobsCard = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch("https://job-nest-server.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, []);

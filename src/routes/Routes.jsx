@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         {
             path:"/update/:id",
             element:<PrivateRoutes><Update></Update></PrivateRoutes>,
-            loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+            loader: ({params})=> fetch(`https://job-nest-server.vercel.app/jobs/${params.id}`)
         },
         {
             path: 'myJObs', 

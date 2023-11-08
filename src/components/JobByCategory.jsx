@@ -15,7 +15,7 @@ const JobByCategory = () => {
 
     useEffect(() => {
         // Fetch job data from your MongoDB API using AXIOS
-        axios.get('http://localhost:5000/jobs')
+        axios.get('https://job-nest-server.vercel.app/jobs')
             .then((response) => {
                 setJobs(response.data);
             })

@@ -42,7 +42,7 @@ const AddJob = () => {
       
         console.log(newJob);
         // Send the new job data to the server for storage
-        fetch("http://localhost:5000/jobs", {
+        fetch("https://job-nest-server.vercel.app/jobs", {
           method: "POST",
           headers: {
             "content-type": "application/json",

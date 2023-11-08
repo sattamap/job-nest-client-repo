@@ -17,7 +17,7 @@ const MyJobs = () => {
     console.log(myJobs);
     
     useEffect(() => {
-        fetch(" http://localhost:5000/jobs")
+        fetch(" https://job-nest-server.vercel.app/jobs")
             .then((response) => response.json())
             .then((data) => {
                 const filteredData = data.filter((item) => item?.userEmail === user.email);
@@ -55,7 +55,7 @@ const MyJobs = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(` http://localhost:5000/jobs/${_id}`,{
+                fetch(` https://job-nest-server.vercel.app/jobs/${_id}`,{
                     method: 'DELETE'
                 })
         

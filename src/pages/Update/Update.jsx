@@ -41,7 +41,7 @@ const Update = () => {
       
         console.log(updatedJob);
         // Send the new job data to the server for storage
-        fetch(`http://localhost:5000/jobs/${loadedData._id}`, {
+        fetch(`https://job-nest-server.vercel.app/jobs/${loadedData._id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

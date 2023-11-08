@@ -18,7 +18,7 @@ const JobDetails = () => {
   const authInfo = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch("https://job-nest-server.vercel.app/jobs")
       .then((response) => response.json())
       .then((data) => {
         setJobs(data);
@@ -87,7 +87,7 @@ if (!jobDetails) {
 
     };
 
-    fetch("http://localhost:5000/appliedJobs", {
+    fetch("https://job-nest-server.vercel.app/appliedJobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

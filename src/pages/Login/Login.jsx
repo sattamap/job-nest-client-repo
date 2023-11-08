@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -72,6 +73,9 @@ const handleGoogleSignIn = () =>{
 
     return (
         <div>
+            <Helmet>
+              <title>JobNest | Login</title>
+            </Helmet>
              <div className="mt-5">
             <h2 className="text-xl text-center">Login Yourself</h2>
 

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const MyJobs = () => {
@@ -87,6 +88,9 @@ const MyJobs = () => {
 
     return (
         <div className="max-w-[1300px] mx-auto">
+          <Helmet>
+              <title>JobNest | My Jobs</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                 <thead>

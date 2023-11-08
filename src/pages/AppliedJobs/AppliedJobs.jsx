@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import { formatDistanceToNow } from "date-fns";
+import { Helmet } from "react-helmet-async";
 
 
 const AppliedJobs = () => {
@@ -52,7 +53,10 @@ const AppliedJobs = () => {
       }
 
     return (
-        <div className="max-w-[1300px] mx-auto">
+        <div className="max-w-[1300px] mx-auto mb-48">
+            <Helmet>
+              <title>JobNest | Applied Jobs</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 {/* Select field to filter by category */}
                 <select

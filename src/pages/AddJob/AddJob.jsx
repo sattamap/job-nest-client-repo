@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const AddJob = () => {
@@ -67,6 +68,9 @@ const AddJob = () => {
       return (
         
           <div>
+            <Helmet>
+              <title>JobNest | Add Job</title>
+            </Helmet>
             <h2 className="text-xl text-center">Add Product</h2>
             <form
               onSubmit={handleAddJob}

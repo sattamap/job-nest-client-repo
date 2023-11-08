@@ -4,6 +4,7 @@ import nest from '../../assets/nest.jpg'
 import api from '../../assets/api.jpg'
 import mongoDB from '../../assets/mongoDB.jpg'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 
 
@@ -26,6 +27,9 @@ const Blogs = () => {
 
     return (
         <div className="w-[1200px] mx-auto mt-10">
+            <Helmet>
+              <title>JobNest | Blogs</title>
+            </Helmet>
             <div className="grid grid-cols-3 gap-10">
                 <div id='main' className="col-span-2 flex flex-col gap-10">
                     <div className="card card-compact w-full bg-base-100 shadow-xl">

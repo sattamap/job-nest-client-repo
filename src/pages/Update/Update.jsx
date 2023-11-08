@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Update = () => {
@@ -66,6 +67,9 @@ const Update = () => {
       return (
         
           <div>
+            <Helmet>
+              <title>JobNest | Update Jobs</title>
+            </Helmet>
             <h2 className="text-xl text-center">Update Jobs</h2>
             <form
               onSubmit={handleUpdate}

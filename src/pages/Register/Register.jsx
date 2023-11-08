@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -54,6 +55,9 @@ const Register = () => {
       
     return (
         <div>
+            <Helmet>
+              <title>JobNest | Register </title>
+            </Helmet>
             <div >
                 <h2 className="text-xl text-center">Register Yourself</h2>
                 <form onSubmit={handleRegister} className="card-body md:w-3/4 lg:w-1/2 mx-auto">

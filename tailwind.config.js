@@ -5,8 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        edu: "'Edu TAS Beginner', cursive",
+      },
+    },
   },
   plugins: [require("daisyui")],
 }
+
+
 

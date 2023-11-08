@@ -3,6 +3,10 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import { formatDistanceToNow } from "date-fns";
 import { Helmet } from "react-helmet-async";
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PDFSummary from "./PDFSummary";
+
+
 
 
 const AppliedJobs = () => {
@@ -10,8 +14,7 @@ const AppliedJobs = () => {
     const [appliedJobs, setAppliedJobs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(""); // Add selectedCategory state
     const { user } = useContext(AuthContext);
-
-    console.log(user);
+    
 
     useEffect(() => {
         fetch("http://localhost:5000/appliedJobs")
@@ -50,14 +53,14 @@ const AppliedJobs = () => {
 
     if (loading) {
         return <div>Loading...</div>;
-      }
+    }
 
     return (
         <div className="max-w-[1300px] mx-auto mb-48">
             <Helmet>
-              <title>JobNest | Applied Jobs</title>
+                <title>JobNest | Applied Jobs</title>
             </Helmet>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-5">
                 {/* Select field to filter by category */}
                 <select
                     value={selectedCategory}
@@ -70,6 +73,7 @@ const AppliedJobs = () => {
                     <option value="Hybrid">Hybrid</option>
                     <option value="Part Time">Part Time</option>
                 </select>
+
 
                 <table className="table">
                     <thead>
@@ -103,19 +107,32 @@ const AppliedJobs = () => {
                                 <td>{job.salaryRange}</td>
                                 <td>{formatDate(job.applicationDeadline)}</td>
                                 <td>{job.jobApplicantsNumber}</td>
-                                {/* <th>
-                    <Link to={`/update/${job._id}`}>
-                        <button className="btn btn-ghost btn-xs">Update</button>
-                    </Link>
-                    <button className="btn btn-ghost btn-xs">Delete</button>
-                </th> */}
                             </tr>
                         </tbody>
                     ))}
                 </table>
+
+
             </div>
+            <button className="btn bg-[#8c5ad1] mt-5">
+  <PDFDownloadLink
+    document={<PDFSummary appliedJobs={filteredJobs} />}
+    fileName="applied-jobs-summary.pdf"
+  >
+    {({ url, loading }) => {
+      if (loading) {
+        return 'Generating PDF...';
+      } else {
+        console.log('PDF URL:', url);
+        return 'Download Summary';
+      }
+    }}
+  </PDFDownloadLink>
+</button>
+            
         </div>
     );
 };
 
 export default AppliedJobs;
+

@@ -17,7 +17,7 @@ const AppliedJobs = () => {
     
 
     useEffect(() => {
-        fetch("http://localhost:5000/appliedJobs",{credentials:'include'})
+        fetch("http://localhost:5000/appliedJobs",)
             .then((response) => response.json())
             .then((data) => {
                 const filteredData = data.filter((item) => item?.email === user.email);

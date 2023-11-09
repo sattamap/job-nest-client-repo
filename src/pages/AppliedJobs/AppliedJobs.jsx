@@ -17,7 +17,7 @@ const AppliedJobs = () => {
     
 
     useEffect(() => {
-        fetch("https://job-nest-server.vercel.app/appliedJobs",)
+        fetch(`https://job-nest-server.vercel.app/appliedJobs?email=${user?.email}`,{credentials:'include'})
             .then((response) => response.json())
             .then((data) => {
                 const filteredData = data.filter((item) => item?.email === user.email);
@@ -35,7 +35,7 @@ const AppliedJobs = () => {
             .catch((error) => {
                 console.error("Error fetching carts:", error);
             });
-    }, []);
+    }, [user]);
 
     const calculateTimeElapsed = (postingDate) => {
         return formatDistanceToNow(new Date(postingDate), { addSuffix: true });

@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -97,6 +98,14 @@ if (!jobDetails) {
       .then((response) => response.json())
       .then((data) => {
         console.log("Application submitted:", data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Application submitted successfully",
+            icon: "success",
+            confirmButtonText: "ok",
+          });
+        }
         closeModal();
       })
       .catch((error) => {
@@ -114,15 +123,15 @@ if (!jobDetails) {
               <title>JobNest | Job Details</title>
             </Helmet>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
+        <div className="hero-content flex-col lg:flex-row gap-20">
           <img src={jobDetails.jobBannerURL} className="max-w-sm rounded-lg shadow-2xl" />
-          <div>
-            <h1 className="text-5xl font-bold">{jobDetails.jobTitle}</h1>
-            <h1 className=" "><span className="text-2xl font-bold">Job Type:</span> <span className="text-lg">{jobDetails.jobCategory} </span></h1>
-            <h1 className=""><span className="text-2xl font-bold">Job Posting Date:</span> <span className="text-lg">{formatDate(jobDetails.jobPostingDate)}</span></h1>
-            <h1 className=""><span className="text-2xl font-bold">Deadline:</span> <span className="text-lg">{formatDate(jobDetails.applicationDeadline)}</span></h1>
-            <h3 className=""><span className="text-2xl font-bold">Salary Range:</span> <span className="text-lg">{jobDetails.salaryRange}</span></h3>
-            <p className="py-6">{jobDetails.jobDescription}</p>
+          <div className="space-y-3">
+            <h1 className="text-5xl font-bold mb-5">{jobDetails.jobTitle}</h1>
+            <h1 className=" "><span className="text-xl font-bold">Job Type:</span> <span className="text-lg"> {jobDetails.jobCategory} </span></h1>
+            <h1 className=""><span className="text-xl font-bold">Job Posting Date:</span> <span className="text-lg">{formatDate(jobDetails.jobPostingDate)}</span></h1>
+            <h1 className=""><span className="text-xl font-bold text-red-500">Deadline:</span> <span className="text-lg">{formatDate(jobDetails.applicationDeadline)}</span></h1>
+            <h3 className=""><span className="text-xl font-bold">Salary Range:</span> <span className="text-lg">{jobDetails.salaryRange}</span></h3>
+            <p className="py-6 text-justify">{jobDetails.jobDescription}</p>
              {/* Conditionally render the "Apply" button and messages */}
           {isButtonActive ? (
             <button onClick={openModal} className="btn btn-primary">

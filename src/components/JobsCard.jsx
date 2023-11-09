@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
+import { AuthContext } from "../provider/AuthProvider";
 
 const JobsCard = () => {
   const [jobs, setJobs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const {user} = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("https://job-nest-server.vercel.app/jobs")
+    
+      fetch("https://job-nest-server.vercel.app/jobs",)
       .then((res) => res.json())
       .then((data) => setJobs(data));
-  }, []);
+   
+    
+  }, [user?.email]);
 
   const calculateTimeElapsed = (postingDate) => {
     return formatDistanceToNow(new Date(postingDate), { addSuffix: true });

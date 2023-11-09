@@ -26,12 +26,12 @@ const Blogs = () => {
     };
 
     return (
-        <div className="w-[1200px] mx-auto mt-10">
+        <div className="max-w-[1300px] mx-auto mt-10">
             <Helmet>
               <title>JobNest | Blogs</title>
             </Helmet>
-            <div className="grid grid-cols-3 gap-10">
-                <div id='main' className="col-span-2 flex flex-col gap-10">
+            <div className="grid  lg:grid-cols-3 gap-10">
+                <div  className="order-1 lg:col-span-2 flex flex-col gap-10">
                     <div className="card card-compact w-full bg-base-100 shadow-xl">
                         <figure><img src={token} alt="Shoes" /></figure>
                         <div className="card-body">
@@ -213,11 +213,11 @@ const Blogs = () => {
                 </div>
 
 
-                <div id='side' className="flex flex-col gap-6 h-fit">
+                <div  className="order-2 flex flex-col gap-6 h-fit">
                     <div>
                         <h2 className='text-xl font-semibold'>Recent Blogs</h2>
                     </div>
-                    <div id='side1' className="card card-side bg-base-100 shadow-xl">
+                    <div className="card card-side bg-base-100 shadow-xl">
                         <figure><img src={nest} alt="Movie" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Nest 8.2.1 is released!</h2>
@@ -225,7 +225,7 @@ const Blogs = () => {
 
                         </div>
                     </div>
-                    <div id='side2' className="card card-side bg-base-100 shadow-xl">
+                    <div  className="card card-side bg-base-100 shadow-xl">
                         <figure><img src={api} alt="Movie" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">What is API!</h2>
@@ -233,7 +233,7 @@ const Blogs = () => {
 
                         </div>
                     </div>
-                    <div id='side3' className="card card-side bg-base-100 shadow-xl">
+                    <div  className="card card-side bg-base-100 shadow-xl">
                         <figure><img src={mongoDB} alt="Movie" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Learn MongoDB!</h2>

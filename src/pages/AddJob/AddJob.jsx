@@ -71,7 +71,7 @@ const AddJob = () => {
             <Helmet>
               <title>JobNest | Add Job</title>
             </Helmet>
-            <h2 className="text-xl text-center">Add Product</h2>
+            <h2 className="text-xl text-center mt-6">Add Product</h2>
             <form
               onSubmit={handleAddJob}
               className="card-body md:w-3/4 lg:w-1/2 mx-auto"

@@ -19,7 +19,7 @@ const Testimonials = () => {
                     showThumbs={false} // Hide thumbnail navigation
                     showStatus={false} // Hide status indicator
                     infiniteLoop={true} // Enable infinite loop
-                    autoPlay={false} // Enable auto-play
+                    autoPlay={true} // Enable auto-play
                     interval={5000} // Auto-play interval in milliseconds
                     swipeable={true} // Enable swipe gestures on mobile
                     emulateTouch={true} // Enable touch emulation for desktop

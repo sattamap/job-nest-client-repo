@@ -17,27 +17,28 @@ const MyJobs = () => {
     console.log(myJobs);
     
     useEffect(() => {
-        fetch(" https://job-nest-server.vercel.app/jobs")
-            .then((response) => response.json())
-            .then((data) => {
-                const filteredData = data.filter((item) => item?.userEmail === user.email);
-                if (filteredData.length === 0) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'No Products Available',
-                        text: 'There are no products available for this brand.',
-                    });
-                } else {
-                    setMyJobs(filteredData);    
-                    setLoading(false);
-                }
-            })
-                
-           
-            .catch((error) => {
-                console.error("Error fetching carts:", error);
-            });
-    }, []);
+        fetch("https://job-nest-server.vercel.app/jobs",)
+      .then((response) => response.json())
+      .then((data) => {
+          const filteredData = data.filter((item) => item?.userEmail === user.email);
+          if (filteredData.length === 0) {
+              Swal.fire({
+                  icon: 'error',
+                  title: 'No Products Available',
+                  text: 'There are no products available for this brand.',
+              });
+          } else {
+              setMyJobs(filteredData);    
+              setLoading(false);
+          }
+      })
+          
+     
+      .catch((error) => {
+          console.error("Error fetching carts:", error);
+      });
+        
+    }, [user?.email]);
     
     if (loading) {
         return <div>Loading...</div>;
@@ -87,11 +88,12 @@ const MyJobs = () => {
           };
 
     return (
-        <div className="max-w-[1300px] mx-auto">
-          <Helmet>
+     
+          
+            <div className="overflow-x-auto max-w-[1300px] mx-auto">
+            <Helmet>
               <title>JobNest | My Jobs</title>
             </Helmet>
-            <div className="overflow-x-auto">
                 <table className="table">
                 <thead>
             <tr>
@@ -135,7 +137,7 @@ const MyJobs = () => {
           ))}
                 </table>
             </div>
-        </div>
+       
     );
 };
 

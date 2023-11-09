@@ -41,17 +41,20 @@ Allow users to apply for a job, auto-filling user information.
 Private route for logged-in users.
 Create a form for adding a new job listing with fields for job banner URL, job title, user name, job category, salary range, job description, posting date, and application deadline.
 Update the job applicants number after each application using MongoDB.
+
 8. **My Jobs Page:**
 
 Private route for logged-in users.
 Display all job listings added by the user in a tabular format.
 Allow users to update and delete jobs they posted.
 Implement a confirmation for job deletion.
+
 9. **Applied Jobs Page:**
 
 Private route for logged-in users.
 Show jobs the user has applied for with a filter system based on job category.
 Users can only see jobs they have applied for.
+
 10. **CRUD Operations:**
 
 Implement Create, Read, Update, and Delete (CRUD) functionality with relevant notifications and error messages.
@@ -60,7 +63,7 @@ Implement Create, Read, Update, and Delete (CRUD) functionality with relevant no
 
 Implement authorization checks to restrict access to private routes and actions.
 Notify users to log in for specific actions (e.g., viewing job details).
-12. **Search and Filter:**
+
 
 
 
